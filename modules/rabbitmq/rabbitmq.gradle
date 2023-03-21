@@ -1,0 +1,33 @@
+plugins {
+    id 'groovy'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.rabbitmq:amqp-client:5.16.0'
+    implementation 'com.rabbitmq:stream-client:0.9.0'
+    testImplementation 'org.codehaus.groovy:groovy:3.0.8'
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.google.guava:guava:30.1.1-jre'
+}
+
+tasks.register("consumer", JavaExec) {
+    group = "rabbit-streams"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "exp.rabbitmq.streams.StreamsConsumer"
+}
+
+tasks.register("producer", JavaExec) {
+    group = "rabbit-streams"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "exp.rabbitmq.streams.StreamsProducer"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

@@ -1,0 +1,14 @@
+services:
+  rabbit:
+    image: smartcardia-rabbitmq
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    environment:
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: '-rabbitmq_stream advertised_host localhost'
+    ports:
+      - "15671:15671"
+      - "15672:15672"
+      - "5671:5671"
+      - "5672:5672"
+      - "5552:5552"

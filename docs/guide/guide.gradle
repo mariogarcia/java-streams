@@ -1,0 +1,27 @@
+plugins {
+    id 'org.kordamp.gradle.guide'
+    id 'org.ajoberstar.git-publish'
+}
+
+asciidoctor {
+    sourceDir 'src/docs/asciidoc'
+    outputDir file("$buildDir/site/docs/html5")
+
+    sources {
+        include 'index.adoc'
+    }
+
+    attributes  'endpoint-url'       : 'http://github.com/grooviter/gql',
+            'source-highlighter' : 'coderay',
+            'releaseVersion'     : version,
+            'imagesdir'          : './images',
+            'toc'                : 'left',
+            'icons'              : 'font',
+            'toclevels'          : 3
+}
+
+asciidoctorj {
+    modules {
+        diagram.version '2.1.0'
+    }
+}

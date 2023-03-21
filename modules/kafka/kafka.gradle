@@ -1,0 +1,8 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation "org.apache.kafka:kafka-clients:$kafka_api"
+    implementation "org.apache.kafka:kafka-streams-scala_2.13:$kafka_streams"
+}
