@@ -10,12 +10,6 @@ import java.util.List;
 import java.util.Properties;
 
 public class NumbersUtils {
-    static Properties loadProperties(String path, String file)  throws IOException {
-        Properties properties = new Properties();
-        properties.load(NumbersProducer.class.getResourceAsStream(path + file));
-        return properties;
-    }
-
     static File createTempFile() throws IOException {
         return Files.createTempFile("numbers-", ".csv").toFile();
     }

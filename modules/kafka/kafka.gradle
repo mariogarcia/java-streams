@@ -4,8 +4,12 @@ plugins {
 
 dependencies {
     implementation "org.apache.kafka:kafka-clients:$kafka_api"
-    implementation "org.apache.kafka:kafka-streams-scala_2.13:$kafka_streams"
+    implementation "org.apache.kafka:kafka-streams:$kafka_streams"
     implementation "org.apache.logging.log4j:log4j-api:$log4j"
     implementation "org.apache.logging.log4j:log4j-core:$log4j"
     implementation "org.apache.logging.log4j:log4j-slf4j-impl:$log4j"
+}
+
+repositories {
+    mavenCentral()
 }

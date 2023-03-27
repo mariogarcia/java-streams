@@ -1,5 +1,6 @@
 package lab.kafka.api.numbers;
 
+import lab.kafka.common.PropertyUtils;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -14,7 +15,7 @@ import java.util.*;
 public class NumbersConsumerManualCommit {
     public static void main(String[] args) throws IOException {
         // configuration
-        Properties properties = NumbersUtils.loadProperties(Constants.RESOURCES_DIR, "numbers-consumer-manual-commit.properties");
+        Properties properties = PropertyUtils.loadProperties(Constants.RESOURCES_DIR, "numbers-consumer-manual-commit.properties");
         // create the consumer
         try(Consumer<Integer, String> consumer = new KafkaConsumer<>(properties)) {
             //consumeFromAllPartitions(consumer);
